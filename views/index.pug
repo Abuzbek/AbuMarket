@@ -1,5 +1,40 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+    div(ng-controller="indexController", ng-init="init()")
+        include navbar
+        section.index
+            .container.pt-5
+                .row.pt-5
+                    .col-lg-9
+                        .swiper-container
+                          .swiper-wrapper
+                            .swiper-slide
+                                img(src="./images/owl1.jpg", alt="", )
+                            .swiper-slide
+                                img(src="./images/owl2.png", alt="", )
+                            .swiper-slide 
+                                img(src="./images/owl3.png", alt="", )
+                            .swiper-slide
+                                img(src="./images/owl4.png", alt="", )
+                            .swiper-slide
+                                img(src="./images/owl5.png", alt="", )
+                          .swiper-button-next
+                          .swiper-button-prev
+                    .col-lg-3.col-md-6
+                        .abuzwrap
+                            .abuzwrap_item
+                                img(src="./images/AbuzGroup.png", alt="alt")
+                                .abuzwrap_overlay    
+                            a.abuzwrap_btn.btn.btn-elegant view 
+            .container-fluid                
+                .row
+                    .sectionCards.slick-card.w-100
+                        div.slick-item
+                            include ./cards/cards.pug 
+                        div.slick-item
+                            include ./cards/cards.pug                
+                        div.slick-item
+                            include ./cards/cards.pug
+                        div.slick-item
+                            include ./cards/cards.pug    

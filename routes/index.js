@@ -1,9 +1,19 @@
-var express = require('express');
-var router = express.Router();
-
+const express = require('express');
+const router = express.Router();
+const Users = require('../model/Users')
+const eA = require('../helper/eA')
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+router.get('/',eA,  (req, res, next)=> {
+  Users.find({}, (err, user) => {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      res.render('index', {
+        title: 'AbuzMarket',
+      });
+    }
+  })
 });
 
 module.exports = router;
