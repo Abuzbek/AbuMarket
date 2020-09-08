@@ -9,6 +9,14 @@ app.controller("indexController", ['$scope',  ($scope) => {
             $('#floatLeft').toggleClass('active')
             $('#formAction').toggleClass('active')
         }
+        $scope.inputSelectFocus=($event)=>{
+          $('#select-options').slideToggle()
+        }
+        $('#select-options li').click(function(){
+          let liText = $(this).text()
+          $('#select-options').slideToggle()
+          $('input[ng-focus="inputSelectFocus($event)"]').val(liText)
+        })
         const swiper = new Swiper('.swiper-container', {
             pagination: {
               el: '.swiper-pagination',
@@ -31,7 +39,7 @@ app.controller("indexController", ['$scope',  ($scope) => {
           prevArrow : '<div class="slider_arrowers prev"><i class="fal fa-chevron-left fa-1x text-white"/></div>',
           nextArrow : '<div class="slider_arrowers next"><i class="fal fa-chevron-right fa-1x text-white"/></div>'
         });
-		
+        
     }
     
 

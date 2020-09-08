@@ -50,7 +50,7 @@ router.post('/signUp', function(req, res, next) {
               console.log(err);
             }
             else{
-              req.flash('info', 'Siz muvaffaqiyatli qoshildingiz')
+              req.flash('info', 'Siz muvaffaqiyatli qoshildingiz aynan siz ekanligingizni iltimos tasdiqlang')
               res.redirect('/login')
             }
           })
@@ -62,8 +62,9 @@ router.post('/signUp', function(req, res, next) {
 
 router.get('/login', (req, res, next) => {
   res.render('login', {
-      title: 'LOGIN'
+      title: 'LOGIN',
   })
+  req.flash('danger', {message})
 })
 
 // ============== route Login GET method ===============
@@ -76,6 +77,15 @@ router.post('/login', (req, res, next) => {
       failureRedirect: '/login',
       failureFlash: true,
   })(req, res, next)
+  Users.findOne({username:req.body.username},(err,user)=>{
+    if(err){
+      console.log(err);
+
+    }
+    else{
+           
+    }
+  })
 })
 
 router.get('/logout', (req, res, next) => {

@@ -1,0 +1,31 @@
+.card.admin{
+
+    .card-body{
+        input,input~label,textarea~label,span{
+            color: white;
+        }
+        input:focus{
+            box-shadow: none;
+            outline: none;
+        }
+        #select-options{
+            padding: 10px 20px;
+            li{
+                span{
+                color:black;
+                }
+                &:hover {
+                    border-radius: 5px;
+                    -webkit-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+                    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+                    background-color: #a5b6be;
+                    span{
+                        color: white;
+
+                    }
+                }
+            }
+        }
+    }
+    
+}

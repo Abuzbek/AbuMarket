@@ -42,6 +42,10 @@ db.once('open', function () {
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const signUpRouter = require('./routes/register')
+const adminRouter = require('./routes/admin')
+const productIdRouter = require('./routes/productId')
+
+
 
 // ===== routes ==========
 
@@ -59,11 +63,11 @@ app.use(function (req, res, next) {
 // ============== express-sessions ==============
 
 app.use(session({
-  secret: 'process.env.SESSION_KEY',
+  secret: process.env.SESSION_KEY,
   resave: true,
   saveUninitialized: true,
   cookie: {
-     maxAge:14*24*360000000
+     maxAge:14*24*36000000
   }
 }))
 
@@ -125,9 +129,10 @@ app.get('*' , (req,res,next)=>{
 
 
 app.use('/', indexRouter);
+app.use('/', adminRouter);
 app.use('/users', usersRouter);
 app.use('/', signUpRouter);
-
+app.use('/', productIdRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

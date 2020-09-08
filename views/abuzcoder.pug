@@ -1,0 +1,74 @@
+extends layout
+
+block content
+    div(ng-controller="indexController", ng-init="init()")
+        include navbar
+        .container
+            .row
+                .col-12
+                      h1.text-white.text-center= title
+                .col-lg-10.col-md-12.m-auto
+                    .card.admin.elegant-color
+                      h5.card-header.info-color.white-text.text-center.py-4
+                        strong Contact us
+                      // Card content
+                      .card-body.px-lg-5.pt-0
+                        // Form
+                        form.text-center(style='color: #757575;', method="POST" action="/abuzcoder" enctype="multipart/form-data")
+                          // Name
+                          .md-form.mt-3
+                            input#materialContactFormName.form-control(type='text' , name="name")
+                            label(for='materialContactFormName') Maxsulat nomi
+                          // E-mail
+                          .md-form
+                            input#materialContactFormEmail.form-control(type='text' name="imb_score")
+                            label(for='materialContactFormEmail') imbScore
+                          .md-form
+                            input#materialContactFormEmail.form-control(type='text' , name="feature")
+                            label(for='materialContactFormEmail') Hususiyati  
+                          .md-form
+                            input#materialContactFormEmail.form-control(type='text' name="money")
+                            label(for='materialContactFormEmail') Narxi  
+                          .md-form
+                            input#materialContactFormEmail.form-control(type='text' name="sale")
+                            label(for='materialContactFormEmail') Sale  
+                          // Subject
+                          span Category
+                          .select-wrapper.mdb-select
+                            span.caret ▼
+                            input.select-dropdown.form-control(type='text', readonly='true', required='false', data-activates='select-options-09efcbff-57f3-4c8f-8e70-b0e800993ad2', value='Select', role='listbox', aria-multiselectable='false', aria-disabled='false', aria-required='false', aria-haspopup='true', aria-expanded='false',ng-focus="inputSelectFocus($event)" , name="category")
+                            ul#select-options.dropdown-content.select-dropdown.w-100(style='display: none; width: 615.175px; position: absolute; top: 0px; left: 0px; opacity: 1;')
+                              li.disabled(role='option', aria-selected='false', aria-disabled='true' , ng-click="childClick($event)")
+                                span.filtrable  Choose option    
+                              li(role='option', aria-selected='false', aria-disabled='false' , ng-click="childClick($event)")
+                                span.filtrable  Feedback    
+                              li(role='option', aria-selected='false', aria-disabled='false' , ng-click="childClick($event)")
+                                span.filtrable  Report a bug    
+                              li.active.selected(role='option', aria-selected='true', aria-disabled='false' , ng-click="childClick($event)")
+                                span.filtrable  Feature request    
+                              li(role='option', aria-selected='false', aria-disabled='false' , ng-click="childClick($event)")
+                                span.filtrable  Feature request    
+                            select.mdb-select.initialized(data-stop-refresh='true')
+                              option(value='', disabled='') Choose option
+                              option(value='1', selected='') Feedback
+                              option(value='2') Report a bug
+                              option(value='3') Feature request
+                              option(value='4') Feature request
+
+                          // Message
+                          .md-form
+                            textarea#materialContactFormMessage.form-control.md-textarea(rows='3' , name="description")
+                            label(for='materialContactFormMessage') Message
+                          // Copy
+                          .md-form
+                              label(for="fileInp" style="position:relative;").btn.btn-outline-info.btn-rounded.btn-block.my-4.mb-5.waves-effect
+                                span Choose file
+                              
+                          
+                          // Send button
+                          
+                          input(type='file', id="fileInp" name="img").d-none
+                          button.btn.btn-outline-info.btn-rounded.btn-block.z-depth-0.my-4.waves-effect(type='submit') Send
+                        // Form
+                    // Material form contact
+

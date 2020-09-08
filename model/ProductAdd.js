@@ -8,7 +8,7 @@ const Products = new Schema({
     category:String,
     money:String,
     feature:String,
-    sale:Boolean,
+    sale:String,
     
 })
-model.exports
+module.exports = mongoose.model('product',Products)

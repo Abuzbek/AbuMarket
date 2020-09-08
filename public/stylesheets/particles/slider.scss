@@ -19,6 +19,13 @@
         align-items: center;
         background: rgba($color: #000000, $alpha: 1.0);
         cursor: pointer;
+        transition: 0.5s;
+        &:hover{
+            i{
+                color:#fbff01 !important;
+            }
+            background: rgba($color: #000c2c, $alpha: 0.7);
+        }
     }
     .slick-list{
         overflow: hidden;
